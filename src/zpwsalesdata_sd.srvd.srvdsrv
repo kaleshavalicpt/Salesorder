@@ -1,0 +1,6 @@
+@EndUserText.label: 'service definition for sales order data'
+define service Zpwsalesdata_sd {
+  expose ZPWSALESHEADER_VIEW;
+  expose zpwsalesitem;
+  expose zpwso_status_view;
+}
