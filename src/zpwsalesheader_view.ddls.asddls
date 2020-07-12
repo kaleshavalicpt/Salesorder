@@ -3,44 +3,51 @@
 @AbapCatalog.preserveKey: true
 //@Search.searchable: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Sales Order Header'
-@UI: { headerInfo: { typeName: 'Sales Order',
-                     typeNamePlural: 'Sales Orders',
-                     title: { type: #STANDARD, value: 'vbeln' }
+@EndUserText.label: 'Header Details'
+@UI: { headerInfo: { typeName: 'Sales Document Information',
+                     typeNamePlural: 'Sales Documents Information',
+                     title: { type: #STANDARD, value: 'vbeln'}
                     }
      }
 @ObjectModel.semanticKey: ['vbeln']
 //@ObjectModel.representativeKey: 'vbeln'
 define root view ZPWSALESHEADER_VIEW as select from zpwvbak as SOHeader
-composition [0..*] of zpwsalesitem as _SOItem 
+composition [0..*] of zpwsalesitem as _SOItem
 composition [0..*] of zpwso_status_view as _SOStatus
-{ @UI.facet: [{ id: 'GeneralData',type: #COLLECTION,position: 10,label: 'Sales Order Header' },
+{ @UI.facet: [{ id: 'GeneralData',type: #COLLECTION,position: 10,label: 'Header Details' },
                                                      { type: #FIELDGROUP_REFERENCE,position: 10,targetQualifier: 'GeneralData1',
                                                         parentId: 'GeneralData',isSummary: true,isPartOfPreview: true},
-                                                     { type: #FIELDGROUP_REFERENCE,position: 20,targetQualifier: 'GeneralData1',
-                                                        parentId: 'GeneralData1',isSummary: true,isPartOfPreview: true},
+//                                                     { type: #FIELDGROUP_REFERENCE,position: 20,targetQualifier: 'GeneralData2',
+//                                                        parentId: 'GeneralData',isSummary: true,isPartOfPreview: true},
                                                      {  id: 'SOItem',purpose: #STANDARD,type: #LINEITEM_REFERENCE,
                                                         label: 'Sales Order Item',position: 10,targetElement: '_SOItem'},
                                                       {  id: 'SOStatus',purpose: #STANDARD,type: #LINEITEM_REFERENCE,
-                                                        label: 'Sales Order Item',position: 10,targetElement: '_SOStatus'}   
+                                                        label: 'Sales Order Status',position: 20,targetElement: '_SOStatus'}   
                                                         ]
 
 
                                                                                                               
-@UI: { lineItem: [ { position: 10, importance: #HIGH } ], selectionField: [{position: 10 }],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }] 
+@UI: { lineItem: [ { position: 10, label: 'Document No', importance: #HIGH } ], 
+       identification: [{ position: 10, label: 'Document No' }], 
+       selectionField: [{position: 10 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
       }      
 //@ObjectModel.text.association:'_SOItem'
 //@Search.defaultSearchElement: true      
+@EndUserText.label: 'Document No'
 key   SOHeader.vbeln,
 
-@UI: { lineItem: [ { position: 20, importance: #HIGH } ], selectionField: [{position: 20 }],
-       fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+@UI: { lineItem: [ { position: 20, label: 'Date Created', importance: #HIGH } ],
+        selectionField: [{position: 20 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }],
+       identification: [{ position: 20, label: 'Date Created' }]
       }
+@EndUserText.label: 'Created Date'
+      
 SOHeader.erdat,
 
-@UI: { lineItem: [ { position: 30, importance: #HIGH } ],
-       fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+@UI: { lineItem: [ { position: 30, label: 'Document Category', importance: #HIGH } ],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
       }
 SOHeader.vbtyp,
 
@@ -73,5 +80,7 @@ SOHeader.spart,
 //SOHeader.lastchangedat,
 _SOItem,
 _SOStatus
+
+
 }
 

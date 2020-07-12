@@ -3,12 +3,10 @@
 {
 "FROM":
 [
-"ZPWVBAK"
+"ZPWVBAP"
 ],
 "ASSOCIATED":
-[
-"ZPWSALESHEADER_VIEW"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

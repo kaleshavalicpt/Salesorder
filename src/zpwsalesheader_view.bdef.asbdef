@@ -10,7 +10,6 @@ lock master
   update;
   delete;
   association _SOItem { create; }
-  association _SOStatus { create; }
 }
 
 define behavior for zpwsalesitem //alias <alias_name>
@@ -24,7 +23,7 @@ lock dependent by _SOheader
 }
 
 define behavior for zpwso_Status_view //alias <alias_name>
-persistent table ZPWVBAP
+persistent table ZPWVBAK
 lock dependent by _SOheader
 //authorization dependent by <association>
 //etag master <field_name>

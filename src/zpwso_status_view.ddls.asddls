@@ -3,28 +3,34 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Sales order Status Information'
-//@ObjectModel.representativeKey: ['vbeln','posnr']
+//@ObjectModel.representativeKey: ['vbeln']
 
-define view zpwso_status_view as select from zpwvbap as SOStatus
+define view zpwso_status_view as select from zpwvbak as SOStatus
 association to parent ZPWSALESHEADER_VIEW as _SOHeader on ( $projection.vbeln = _SOHeader.vbeln )
 {
-@UI.facet: [{type: #COLLECTION, position: 10, id: 'Sostatus', label: 'Sales Order Status'},
-{type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'Sostatus1',parentId: 'Sostatus', isSummary: true, isPartOfPreview: true}
+@UI.facet: [{type: #COLLECTION, position: 10, id: 'SoStatus', label: 'Status'},
+{type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'SoStatus1',parentId: 'SoStatus', isSummary: true, isPartOfPreview: true}
+//{type: #FIELDGROUP_REFERENCE, position: 20, targetQualifier: 'SoItem2',parentId: 'SoItem', isSummary: true, isPartOfPreview: true}
 ]
 
-@UI: { lineItem: [ { position: 10, importance: #HIGH } ], fieldGroup: [{qualifier: 'SoItem1',position: 10,importance: #HIGH }]}
+@UI: { lineItem: [ { position: 10, label: 'Document No', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
+//@ObjectModel.text.association:'_SOHeader'
+//@Search.defaultSearchElement: true
+@EndUserText.label: 'Document No'
+
 key  SOStatus.vbeln,
 
-@UI: { lineItem: [ { position: 20, importance: #HIGH } ], fieldGroup: [{qualifier: 'SoItem1',position: 20,importance: #HIGH }]}
-key  SOStatus.posnr,
+@UI: { lineItem: [ { position: 20, label: 'Goods Movement', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
+SOStatus.wbstk,
 
-@UI: { lineItem: [ { position: 30, importance: #HIGH } ], fieldGroup: [{qualifier: 'SoItem2',position: 10,importance: #HIGH }]}
-SOStatus.matnr,
+@UI: { lineItem: [ { position: 30 , label: 'Delivery Status', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
+SOStatus.lfstk,
 
-@UI: { lineItem: [ { position: 40, importance: #HIGH } ], fieldGroup: [{qualifier: 'SoItem2',position: 20,importance: #HIGH }]}
-SOStatus.zmeng,
-SOStatus.meins,
-/*Association*/
+@UI: { lineItem: [ { position: 40 , label: 'Delivery Block Status', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 10,importance: #HIGH }]}
+SOStatus.lsstk,
+
+@UI: { lineItem: [ { position: 50 , label: 'Confirmation status',importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 10,importance: #HIGH }]}
+SOStatus.bestk,
 
 _SOHeader
 
