@@ -47,5 +47,4 @@ SOItem.meins,
 /*Association*/
 
 _SOHeader
-
 }

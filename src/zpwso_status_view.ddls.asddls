@@ -48,5 +48,4 @@ SOStatus.lsstk,
 SOStatus.bestk,
 
 _SOHeader
-
 }
