@@ -31,38 +31,40 @@ composition [0..*] of zpwso_status_view as _SOStatus
        identification: [{ position: 10, label: 'Document No' }], 
        selectionField: [{position: 10 }],
        fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
-      }      
+      }     
+      
+ @Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_so' , 
+                                                        element: 'vbeln'  }     }] 
+       
 //@ObjectModel.text.association:'_SOItem'
 //@Search.defaultSearchElement: true      
 @EndUserText.label: 'Document No'
 key   SOHeader.vbeln,
 
 @UI: { lineItem: [ { position: 20, label: 'Date Created', importance: #HIGH } ],
-        selectionField: [{position: 20 }],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }],
        identification: [{ position: 20, label: 'Date Created' }]
       }
-@EndUserText.label: 'Created Date'
-      
+@EndUserText.label: 'Created Date'      
 SOHeader.erdat,
 
 @UI: { lineItem: [ { position: 30, label: 'Document Category', importance: #HIGH } ],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+       fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
       }
 SOHeader.vbtyp,
 
 @UI: { lineItem: [ { position: 40, importance: #HIGH } ],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+       fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH }]
       }
 SOHeader.vkorg,
 
 @UI: { lineItem: [ { position: 50, importance: #HIGH } ],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+       fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH }]
       }
 SOHeader.vtweg,
 
 @UI: { lineItem: [ { position: 60, importance: #HIGH } ],
-       fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH }]
+       fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH }]
       }
 SOHeader.spart,
 

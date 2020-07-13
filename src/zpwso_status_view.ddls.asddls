@@ -14,22 +14,37 @@ association to parent ZPWSALESHEADER_VIEW as _SOHeader on ( $projection.vbeln = 
 ]
 
 @UI: { lineItem: [ { position: 10, label: 'Document No', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
-//@ObjectModel.text.association:'_SOHeader'
-//@Search.defaultSearchElement: true
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_so' , 
+                                                        element: 'vbeln'  }     }] 
+
+
 @EndUserText.label: 'Document No'
 
 key  SOStatus.vbeln,
 
 @UI: { lineItem: [ { position: 20, label: 'Goods Movement', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_status' , 
+                                                        element: 'status'  }     }] 
+
 SOStatus.wbstk,
 
 @UI: { lineItem: [ { position: 30 , label: 'Delivery Status', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 20,importance: #HIGH }]}
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_status' , 
+                                                        element: 'status'  }     }] 
+
 SOStatus.lfstk,
 
 @UI: { lineItem: [ { position: 40 , label: 'Delivery Block Status', importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 10,importance: #HIGH }]}
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_status' , 
+                                                        element: 'status'  }     }] 
+
+
 SOStatus.lsstk,
 
 @UI: { lineItem: [ { position: 50 , label: 'Confirmation status',importance: #HIGH } ], fieldGroup: [{qualifier: 'SoStatus1',position: 10,importance: #HIGH }]}
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_status' , 
+                                                        element: 'status'  }     }] 
+
 SOStatus.bestk,
 
 _SOHeader

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZPWFGTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZPWFG</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZPWADD_DATA</FUNCNAME>
+     <SHORT_TEXT>Add data into tables</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>LV_TABLE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZMATERIALS-DESCRIPTION</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LV_COUNT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>LV_TABLE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LV_COUNT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

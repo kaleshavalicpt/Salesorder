@@ -19,9 +19,10 @@ association to parent ZPWSALESHEADER_VIEW as _SOHeader on ( $projection.vbeln = 
        identification: [{ position: 10, label: 'Document No' }], 
        selectionField: [{position: 10 }],
        fieldGroup: [{qualifier: 'SoItem1',position: 10,importance: #HIGH }]
-      }      
-//@ObjectModel.text.association:'_SOItem'
-//@Search.defaultSearchElement: true      
+      } 
+@Consumption.valueHelpDefinition: [{  entity: {   name: 'zvaluehelp_so' , 
+                                                        element: 'vbeln'  }     }] 
+              
 @EndUserText.label: 'Document No'
 
 key  SOItem.vbeln,

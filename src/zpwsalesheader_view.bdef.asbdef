@@ -10,6 +10,7 @@ lock master
   update;
   delete;
   association _SOItem { create; }
+  association _SOStatus { create; }
 }
 
 define behavior for zpwsalesitem //alias <alias_name>
